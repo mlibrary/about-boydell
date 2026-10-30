@@ -1,0 +1,1000 @@
+// colors
+$boydell-brand-color: #005159;
+$boydell-brand-secondary: #063462;
+$boydell-cta: #4041cb;
+$boydell-light-background: #efefea; // on brand-color
+$boydell-white: #fff;
+
+$boydell-accent-yellow:#cdcb33;
+$boydell-accent-green:#9ec1a3;
+$boydell-accent-blue:#96b9fc;
+$boydell-accent-highlight:#e9fd5b;
+
+$boydell-headings: #002347;
+$boydell-pale-blue: #dce4ff; // on brand-secondary
+
+$boydell-text: #000;
+
+// colors and theming
+$theme-colors: (
+  "primary": #4041cb,
+  "secondary": #063462,
+  "muted": #F3F4EF
+);
+$table-dark-bg: $boydell-brand-color;
+
+
+@import "../bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+// typography
+@mixin bricolage {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+@mixin caladea {
+  font-family: "Caladea", serif;
+}
+
+@mixin noto-sans {
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  @include noto-sans;
+}
+
+// colors
+$otf-brand-color: #1B1D33;
+$otf-light-beige: #F3F4EF;
+$otf-light-lilac: #DDD0E2;
+$otf-gray-blue: #494A5B;
+$otf-blue-link: #2075AC;
+$otf-blue: #288ECF;
+$otf-yellow: #FBFFE6;
+$otf-dark-grey: #333333;
+$otf-light-grey: #EFEFEF;
+$otf-black-80: #33312d;
+$otf-black-100: #000000;
+$otf-link: $otf-blue-link;
+$otf-highlight: $boydell-brand-color;
+$otf-highlight-dark: #FFDF00;
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @include bricolage;
+    font-weight: 600;
+    color: $otf-black-80;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid $boydell-brand-color;
+  color: $boydell-headings;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h3, 
+h4,
+h5 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+
+
+:focus, :focus-visible {
+  outline: 3px solid $otf-highlight;
+  outline-offset: 2px;
+  -webkit-transition: outline .05s ease-out;
+  -o-transition: outline .05s ease-out;
+  transition: outline .05s ease-out;
+  outline-color: -webkit-focus-ring-color;
+}
+
+
+// links
+p, ul, li {
+  a {
+  color: $boydell-cta;
+  border-bottom: 1px solid $boydell-cta;
+  word-wrap: break-word;
+  }
+  a:hover,
+  a:focus {
+    border-bottom:none;
+    color: #fff;
+    background-color: $boydell-cta;
+    text-decoration: underline; 
+  }
+}
+
+a img.external {
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+}
+
+// buttons
+.btn {
+  @include caladea;
+  font-weight: 500;
+}
+
+p a.btn {
+  text-decoration: none;
+}
+
+.btn-secondary {
+  color: #fff;
+}
+
+.btn-secondary:focus {
+  outline: 3px solid $otf-highlight;
+  outline-offset: 2px;
+  -webkit-transition: outline .05s ease-out;
+  -o-transition: outline .05s ease-out;
+  transition: outline .05s ease-out;
+  box-shadow: none; 
+}
+
+
+// header and navigation
+.navbar {
+  border-bottom: 8px solid $boydell-brand-color;
+}
+
+.navbar span {
+  font-style: italic;
+
+}
+
+.navbar-nav li.nav-item a.nav-link {
+  border-bottom: 0;
+  color: $boydell-brand-color;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.navbar-nav li.nav-item a.nav-link:hover,
+.navbar-nav li.nav-item a.nav-link:focus
+ {
+  color: $boydell-brand-color;
+  text-decoration: underline;
+  background: none;
+}
+
+
+.navbar-brand {
+  padding: .25em;
+}
+
+// mobile navbar toggler (no navbar-light/dark, so supply the icon)
+.navbar .navbar-toggler {
+  margin-left: auto;
+  border: 2px solid $boydell-brand-color;
+  padding: .25rem .5rem;
+}
+
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='%23005159' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .navbar-toggler:focus {
+  outline: 3px solid $boydell-brand-color;
+  outline-offset: 2px;
+}
+
+// mobile logos: smaller and side by side
+@media screen and (max-width: 767px) {
+  .navbar .container {
+    flex-wrap: wrap;
+  }
+
+  .navbar-brand {
+    margin-right: .75rem;
+    margin-top: 0 !important; // override mt-2 on the first logo
+    padding: .25em 0;
+  }
+
+  .navbar-brand-logo {
+    height: 44px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .navbar-brand-logo {
+    height: 36px;
+  }
+}
+
+// lg range: 960px container is too narrow for full-size logos + all nav links
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+  .navbar-brand {
+    margin-right: .75rem;
+  }
+
+  .navbar-brand-logo {
+    height: 56px;
+    width: auto;
+  }
+
+  .navbar-nav li.nav-item a.nav-link {
+    font-size: 1em;
+    padding-left: .4rem;
+    padding-right: .4rem;
+  }
+}
+
+// page
+.page-container {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+// hero
+.hero-container {
+  color: #fff;
+  background-color: #034f5a; // matches the image's teal; shows while the image loads
+  background-image: url("/assets/Boydell_top_box.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4em 0;
+
+  .container .row {
+    justify-content: center;
+  }
+
+  .hero-primary {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 400;
+    @include bricolage;
+    max-width: 90%;
+  }
+  .hero-secondary {
+    @include noto-sans;
+    padding-top: .8em;
+    font-size: 1.2em;
+    max-width: 90%;
+    background: #005159
+  }
+
+  .hero-button {
+    padding-top: 1.5em;
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-container {
+    padding: 2.5em 0;
+    background-position: right bottom;
+  }
+}
+
+// cards
+
+.card-subtitle.text-muted,
+.published .text-muted {
+  color: #616970 !important;
+}
+
+
+// tagline/quote
+.top-tagline {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+
+// publishers
+.books-container {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+
+  .featured {
+    display: flex;
+    justify-content: center;
+  }
+
+  .publisher-text {
+    padding-bottom: 1em;
+  }
+
+  .book-card-list {
+    justify-content: space-evenly;
+  }
+  
+  // publisher cards
+  .book-card {
+    max-width: 200px;
+    background-color: #FFF;
+    margin: 10px;
+    border: 2px solid $otf-brand-color;
+    justify-content: end;
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .card-img {
+      border-radius: 0;
+      max-height: 200px;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .card-subtitle {
+      @include noto-sans;
+      font-weight: 400;
+      margin-bottom: .6em;
+    }
+
+    p {
+      max-width: 100%;
+    }
+
+    .card-text {
+      font-size: .9rem;
+    }
+
+    .card-body {
+      background-color: $otf-light-lilac;
+    }
+
+    .cover-only-img {
+      min-width: 200px;
+    }
+  }
+
+}
+
+
+// home - catalog
+.catalog-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  figure {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+.catalog-image {
+  width: 95px;
+}
+
+// Home page call to action buttons and containers
+.cta-container {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+
+  .callout {
+    padding: 1.5em;
+    border: none;
+  }
+
+  .yellow {
+    background-color: $boydell-accent-yellow;
+  }
+  .blue {
+    background-color: $boydell-accent-blue;
+  }
+
+  .cta1, .cta2, .cta3 {
+    background-color: $otf-brand-color;
+    color: $otf-light-lilac;
+    padding: 1em;
+
+    h2 {
+      color: #FFF;
+    }
+  }
+
+
+}
+
+
+.news-events-container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+// news and events on homepage and individual pages
+.post-image {
+  max-height: 500px;
+  overflow: hidden;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.news {
+  p {
+    line-height: 1.7;
+  }
+}
+
+.news-item .main {
+  @include noto-sans;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.news-item {
+  padding-top: 4rem;
+  blockquote {
+    margin: 0 2rem;
+    text-align: justify;
+    font-size: .95em;
+  }
+}
+
+.summary {
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 1em;
+      @include noto-sans;
+      line-height: 1.5;
+    }
+
+    time {
+      font-size: .9em;
+      margin-top: .2em !important;
+      margin-bottom: 1em;
+      @include noto-sans;
+      display: block;
+    }
+}
+
+.blog-card-container {
+
+  .card-body {
+    position: relative;
+
+    a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    a:focus {
+      outline: initial;
+    }
+  }
+
+  .card-body:hover,
+  .card-body:focus-within {
+    outline: 3px solid $otf-highlight;
+      outline-offset: 2px;
+      -webkit-transition: outline .05s ease-out;
+      -o-transition: outline .05s ease-out;
+      transition: outline .05s ease-out; 
+  }
+
+  .card-image {
+    max-height: 300px;
+    overflow: hidden;
+  }
+}
+
+.blog-card-container .card {
+  background-color: $otf-light-beige;
+
+  .published {
+    @include noto-sans;
+  }
+}
+
+.blog-card-container > a:focus,
+.blog-card-container > .card:focus {
+  outline: 3px solid $otf-highlight;
+  outline-offset: 2px;
+  -webkit-transition: outline .05s ease-out;
+  -o-transition: outline .05s ease-out;
+  transition: outline .05s ease-out;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.event-card-container {
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+
+
+.journals {
+
+  h2 {
+    margin-top: 0;
+  }
+  img {
+    border: 2px solid $otf-light-beige;
+  }
+}
+
+// for libraries
+.intro {
+  padding: 0 2em 2em;
+  h2, h3 {
+    text-align: left;
+  }
+  h3 {
+    font-weight: 500;
+  }
+}
+
+.cards {
+  padding-top: 1em;
+
+  .card {
+    background-color: #f9fafb;
+    margin: 1em 0;
+    min-height: 280px;
+    border-left: 4px solid #1b1d32;
+  }
+  h4 {
+   margin-top: 0; 
+  }
+}
+
+.checklist {
+
+  .beige-box {
+    margin-bottom: 2rem;
+
+    .lead {
+      font-size: 1.5rem;
+    }
+  }
+
+  ul {
+    padding-top: 1em;
+    list-style: none;
+  }
+  ul li {
+    font-size: 1.25em;
+    margin-bottom: 1em;       
+  }
+  ul li:before {
+    content: "☑ ";
+    font-size: 1.5em;
+  }
+}
+
+.features.checklist {
+  ul li {
+    font-size: 1em;
+  }
+  ul li:before {
+    content: "☑ ";
+    font-size: 1.25em;
+  }
+}
+
+.callout {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border-left: 4px solid #1b1d32;
+  border-bottom: 2px solid #1b1d32;
+  border-right: 2px solid #1b1d32;
+  border-top: 2px solid #1b1d32;  
+  margin: 0 2rem 1.5rem;
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0;
+  }
+
+}
+
+.cta {
+  padding: 3rem;
+  border-top: 1px solid rgba(0,0,0,.125);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+
+
+.navy-box {
+  margin-top: 2rem;
+  background: $boydell-accent-blue;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  color: $otf-light-grey;
+  border: 1px solid $otf-light-grey;
+
+  h2, h3, h4 {
+    color: $boydell-headings;
+  }
+
+}
+
+//about the model
+.lead.about {
+  @include bricolage;
+  font-size: 1.5em;
+}
+
+.beige-box {
+  background: $boydell-light-background;
+  backdrop-filter: blur(8px);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 5em;
+  border: 2px solid $otf-gray-blue;
+}
+
+// supporters
+
+.quote-box {
+  padding: 3rem 2rem;
+  margin-bottom: 3em;
+
+  blockquote {
+  margin: 0 auto;
+  position: relative;
+  padding: 3rem 3rem 4rem 3rem;
+  background: white;
+  border-radius: 8px;
+  border-left:4px solid #F0DC47;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    p {
+      font-size: 1em;
+    }
+
+  footer { text-align: right;
+  font-style: italic;
+  color: #1a1d35;
+  font-weight: 600;
+  font-size: 1rem;
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+  }
+}
+  blockquote::before {
+    content: '"';
+  font-size: 3rem;
+  color: #1a1d35;
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  }
+  blockquote::after {
+    content: '"';
+  font-size: 3rem;
+  color: #1a1d35;
+  position: absolute;
+  bottom: -0.5rem;
+  right: 1rem;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  }
+
+}
+
+.supporters {
+  font-size: 1.2rem;
+
+  ul {
+    list-style: none;
+  }
+
+  ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 1rem;
+    color: #1a1d35;
+  }
+
+  p .font-weight-bold {
+    font-size: 1rem;
+  }
+
+
+}
+
+//resources
+
+.brochure {
+  justify-content: space-evenly;
+
+  > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .h4 {
+    min-height: 2.4em;      // room for a two-line title so the thumbnails start level
+    line-height: 1.2;
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .gatsby-resp-image-wrapper {
+    width: 200px;                       // same width for every thumbnail
+    max-width: 100% !important;         // override Gatsby's inline max-width
+    margin: 0 auto 1.5rem !important;   // override Gatsby's inline margins
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+  }
+
+  p {
+    flex-grow: 1;           // fills extra space so the buttons line up
+    max-width: 30ch;
+  }
+
+  .btn {
+    margin-top: auto;
+  }
+}
+
+
+// footer
+.footer {
+  background-color: $boydell-brand-color;
+  border-top: 1px solid rgba(0,0,0,.125);
+  padding: 3rem 0 1rem;
+  @include noto-sans;
+
+  :focus {
+    outline: 3px solid $otf-highlight-dark;
+    outline-offset: 2px;
+    -webkit-transition: outline .05s ease-out;
+    -o-transition: outline .05s ease-out;
+    transition: outline .05s ease-out;
+  }
+
+  a.logo-link, a {
+    border-bottom: 0px;
+  }
+
+   a.logo-link:hover, a:hover {
+    text-decoration: underline;
+    background-color: transparent;
+  }
+
+  span.logo {
+    @include noto-sans;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    vertical-align: middle;
+    padding-left: 8px;
+  }
+
+  .partners {
+    .westminster svg {
+      fill: $otf-light-beige;
+      width: 140px;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+    .alpsp img {
+      height: 40px;
+      display: inline-block;
+    }
+    .alpsp img {
+      margin-bottom: 20px;
+    }
+    .aeup img, .even img {
+      height: 40px;
+      display: inline-block;
+    }
+    .aeup img {
+      margin-right: 10px;
+    }
+  }
+
+  .fulcrum {
+    vertical-align: baseline;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .contact a {
+    margin-bottom: 1em;
+  }
+
+  p.social {
+    padding-top: .4em;
+    a {
+      padding-right: 0.75em;
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        fill: $otf-light-beige;
+      }
+    }
+    a:first-of-type {
+      padding-left: 0;
+    }
+  }
+
+  .footer-head {
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+  }
+
+  ul.second-nav {
+    font-size: 20px;
+  }
+
+  li {
+    padding-left: 1rem;
+    text-indent:-1rem;
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+  .featured .book-card {
+    margin-bottom: 2em;
+  }
+
+  .books-container .book-card:first-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-img {
+    width: auto;
+  }
+  
+  .books-container .book-card {
+    max-width: 350px;
+  }
+  .books-container .book-card:first-child {
+    margin-right: 0;
+  }
+  .featured .journals {
+    margin-top: 0;
+  }
+  .featured .book-card {
+    margin-bottom: 2em;
+  }
+}
+
+// package cards
+.package-card-list {
+  padding-top: 1em;
+}
+
+.package-card {
+  background-color: $boydell-light-background;
+  border: 2px solid $boydell-brand-color;
+  border-radius: 0;
+  max-width: 350px;
+  margin: 0 auto;
+
+  .package-card-image {
+    background-color: $boydell-accent-green;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 2px solid $boydell-brand-color;
+
+    img {
+      border-radius: 0;
+      max-height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-top: 0;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .card-text {
+    font-size: .95rem;
+    max-width: 100%;
+  }
+
+  .btn {
+    display: block;
+  }
+
+  &:hover,
+  &:focus-within {
+    outline: 3px solid $otf-highlight;
+    outline-offset: 2px;
+    transition: outline .05s ease-out;
+  }
+}
+
+// package page
+.package-page {
+  padding-top: 4rem;
+
+  .package-page-image {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border: 2px solid $otf-brand-color;
+  }
+
+  .package-long-description p {
+    @include noto-sans;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .main {
+    @include noto-sans;
+    line-height: 1.7;
+    font-size: 1.1rem;
+  }
+}
+
+// homepage packages section
+.home-packages-container {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.hero-text + .hero-text {
+    margin-top: 1em;
+  }
