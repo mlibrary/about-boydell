@@ -99,7 +99,7 @@ const IndexPage = ({data}) => {
           </div>
           <PackageList packages={data.packages.edges} headingLevel="h3" />
           <div className="text-center mt-2">
-            <Link to="/packages" className="btn btn-secondary btn-lg">
+            <Link to="/packages" className="btn btn-primary btn-lg">
               View All Packages
             </Link>
           </div>
@@ -108,7 +108,7 @@ const IndexPage = ({data}) => {
           <div className="row">
             {[cta1, cta2, cta3].map((cta, i) => (
               <div key={i} className={i === 0 ? "col-12 mb-4" : "col-md-6 mb-4 mb-md-0"}>
-                <div key={i} className={i === 0 ? "callout h-100 d-flex flex-column blue" : "callout h-100 d-flex flex-column yellow"}>
+                <div className="callout h-100 d-flex flex-column">
                   <h2>{cta.heading}</h2>
                   <Paragraphs text={cta.description} />
                   <a className="card-link btn btn-primary btn-lg mt-auto align-self-start" href={cta.buttonUrl}>{cta.buttonLabel}</a>
